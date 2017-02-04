@@ -12,12 +12,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. */
 
-var setPw = function(groupId, padName, Password){
-//	console.log(groupId);
-	
-	
-};
-
 var getBaseURL = function(slice,cb){
 	var  loc = document.location, port = loc.port == "" ? (loc.protocol == "https:" ? 443
 			: 80)
@@ -595,20 +589,6 @@ $(document).ready(function() {
 		}
 		
 		initPaging(6);
-		/*e.preventDefault();
-//		console.log('enter');
-		var data = {};
-			
-		var url;
-		getBaseURL(1,function(baseurl){
-			url = baseurl;
-			data.searchterm= $('#search').val();
-			data.location = url;
-			post(data, url+'groupsSearchTerm' ,function(data){
-				$('#table').html(data);
-				$(document).ready();
-			});
-		});*/
 		
 	});
 	
@@ -700,42 +680,6 @@ $(document).ready(function() {
 		// set the value for the number of rows
 		$("#pageCountU").html($(".content table tr.visible").length);
 	}
-		/*$('#searchUser').keypress(function(e){
-//			console.log('clicked herer jköfdsföa');
-			if(e.which == 13){
-				e.preventDefault();
-				var data = {};
-				var url;
-				getBaseURL(1,function(baseurl){
-					url = baseurl;
-					data.searchterm= $('#searchUser').val();
-					data.location = url;
-					var groupID = $("#lightBoxMain").data('groupid');
-					var selectUsers = $("#selectedUsers").val();
-					
-					data.groupID = groupID;
-					post(data, url+'userSearchTerm' ,function(data){
-						if(data.success){
-							createUserManagement(data.users, selectUsers, groupID ,function(val){
-								$("#overlay").remove();
-			    				$("#lightBox").remove();
-								$("#wrapper").append('<div id="overlay"></div>');
-								$("#wrapper").append(val);
-								handler();
-								handler2();
-								$(document).ready();
-							});
-						}else{
-							console.log(data.error);
-		    				$("#overlay").remove();
-		    				$("#lightBox").remove();
-						}
-					});
-				});
-			}else{
-//				console.log('not enter');
-			}
-		});*/ 		
    		
    	};
 		
@@ -777,101 +721,6 @@ $(document).ready(function() {
 		}
     });
     
-    /*
-     * Group
-     * 
-     */
-	
-	
-//    $(".unlock").click(function(){
-//    	$("#wrapper").append('<div id="overlay"></div>');
-//   		$("#wrapper").append('<div id="lightBox"><div id="lightBoxHeader"><span class="close"><img src="./static/plugins/ep_user_pad_frontend/static/images/close-cyan-12.png"></span></div><div id="lightBoxMain">'+
-//   				'<div class="headline"><img src="./../static/plugins/ep_user_pad_frontend/static/images/lock-cyan-32.png" '+
-//   				'class="headlineImage" alt="Set Password"><h1 lang="en">Set Password</h1></div><div class="content">'+
-//   				'<h3 lang="en">Set Password for "' + $(this).attr('title') + '"</h3><form id="unlockPadSubmit" title="'+$(this).attr('title')+'" name="'+$(this).attr('id')+
-//   				'"><input id="passwordval" type="password" lang="en" placeholder="Password"'+
-//   				'class="marginRight"><button  >'+
-//   				'Set</button></form></div></div></div>');
-//   		
-//   		$("#lightBox").css("margin-top",-$("#lightBox").height()/2);
-//   		
-//  		$(".close").click(function(){
-//   			$("#overlay").remove();
-//   			$("#lightBox").remove();
-//    	});
-//  		
-//  	    $("#unlockPadSubmit").submit(function(e){
-//  	    	e.preventDefault();
-//  	    	var data = {};
-//  			data.groupId = $(this).attr('name');
-//  			data.padName = $(this).attr('title');
-//  			data.pw = $("#passwordval").val();
-////  			console.log(data);
-//  	    	
-//			var url;
-//			getBaseURL(2,function(baseurl){
-//				url = baseurl;
-//				data.location = url;
-////				console.log(url+'setPassword');
-//				post(data, url+'setPassword' ,function(data){
-//					if(data.success){
-////							console.log('here!!');
-//							window.location.reload();
-//							
-//						}else{
-//							console.log(data.error);
-//					}	
-//				});
-//			});
-//  	    });
-//    });
-//    
-//
-//		
-//   	$(".lock").click(function(){
-//   		$("#wrapper").append('<div id="overlay"></div>');
-//   		$("#wrapper").append('<div id="lightBox"><div id="lightBoxHeader"><span class="close"><img src="./static/plugins/ep_user_pad_frontend/static/images/close-cyan-12.png"></span></div><div'+
-//   				'id="lightBoxMain"><div class="headline"><img src="./../static/plugins/ep_user_pad_frontend/'+
-//   				'static/images/close-red-32.png" class="headlineImage" alt="Delete"><h1 lang="en" class="red">Delete'+
-//   				' Password</h1></div><div class="content"><button lang="en" class="marginRight" id="lockPadButton"'+
-//   				'title="'+$(this).attr('title')+'" name="'+$(this).attr('id')+
-//   				'">Delete</button><button '+
-//   				'lang="en" id = "cancelUnlock">Cancel</button></div></div></div>');
-//    	$("#lightBox").css("margin-top",-$("#lightBox").height()/2);
-//   		
-//   		$(".close").click(function(){
-//   			$("#overlay").remove();
-//   			$("#lightBox").remove();
-//   		});
-//   		
-//   		$("#cancelUnlock").click(function(){
-////   			console.log("clicked");
-//   			$("#overlay").remove();
-//   			$("#lightBox").remove();
-//   		});
-//   		
-//  	    $("#lockPadButton").click(function(){
-////  	    	console.log('clicked here');
-//  	    	var data = {};
-//  			data.groupId = $(this).attr('name');
-//  			data.padName = $(this).attr('title');
-//  			data.pw = null;
-////  			console.log(data);
-//  			var url;
-//			getBaseURL(2,function(baseurl){
-//				url = baseurl;
-//				data.location = url;
-////				console.log(url+'setPassword');
-//				post(data, url+'setPassword' ,function(data){
-//					if(data.success){
-//  						window.location.reload();	
-//  					}else{
-//  						console.log(data.error);
-//  					}	
-//				});
-//			});
-//  	    });
-//   	});
    	
    	/*
    	 * Minimize and Maximize of the Header, groupNav und Footer Element in Pad View
@@ -972,20 +821,6 @@ $(document).ready(function() {
 		}
 		
 		initPaging(rowsize);
-		/*e.preventDefault();
-//		console.log('enter');
-		var data = {};
-			
-		var url;
-		getBaseURL(1,function(baseurl){
-			url = baseurl;
-			data.searchterm= $('#search').val();
-			data.location = url;
-			post(data, url+'groupsSearchTerm' ,function(data){
-				$('#table').html(data);
-				$(document).ready();
-			});
-		});*/
 		
 	});
 	
